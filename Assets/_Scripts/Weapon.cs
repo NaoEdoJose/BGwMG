@@ -10,6 +10,8 @@ public class Weapon : MonoBehaviour {
 	float timeToFire = 0 ;
 	Transform firePoint;
 
+	public Transform bullet;
+
 
 	void Awake () {
 
@@ -38,6 +40,7 @@ public class Weapon : MonoBehaviour {
 	}
 	void Shoot(){
 		Debug.Log("Working!");
+		Instantiate(bullet , firePoint.position, firePoint.rotation);
 
 	}
 

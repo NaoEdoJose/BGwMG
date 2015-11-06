@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour {
 
-
+	public float speed = 0.2f;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +12,6 @@ public class BulletBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.Translate ( speed, 0, 0);
 	}
 }
