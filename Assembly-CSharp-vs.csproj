@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\_Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\_Scripts\Controller2D.cs" />
+     <Compile Include="Assets\_Scripts\PivotBehaviour.cs" />
      <Compile Include="Assets\_Scripts\Player.cs" />
      <Compile Include="Assets\_Scripts\Weapon.cs" />
  <Reference Include="UnityEngine.UI">

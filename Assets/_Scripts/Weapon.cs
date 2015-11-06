@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour {
 
 		firePoint = transform.FindChild ("FirePoint");
 		if (firePoint == null) {
-			Debug.LogError("No FirePoint , Stupid");
+			Debug.LogError("Jose, adicione um FirePoint como filho do Player");
 		}
 
 	}
@@ -35,13 +35,11 @@ public class Weapon : MonoBehaviour {
 				Shoot();
 
 			}
-		
 		}
 	}
-	void Shoot(){
-		Debug.Log("Working!");
-		Instantiate(bullet , firePoint.position, firePoint.rotation);
 
+	void Shoot(){
+		Instantiate (bullet, firePoint.position, firePoint.rotation);
 	}
 
 }
