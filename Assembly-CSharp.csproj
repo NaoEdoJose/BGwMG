@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\BulletBehaviour.cs" />
+     <Compile Include="Assets\_Scripts\CameraFollow.cs" />
      <Compile Include="Assets\_Scripts\Controller2D.cs" />
      <Compile Include="Assets\_Scripts\PivotBehaviour.cs" />
      <Compile Include="Assets\_Scripts\PlatformController.cs" />
