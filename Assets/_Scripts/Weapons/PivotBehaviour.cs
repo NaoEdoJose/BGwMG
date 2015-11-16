@@ -22,18 +22,11 @@ public class PivotBehaviour : MonoBehaviour {
 		}
 
 		angle = (horizontal + vertical) / 2;
-		print ("Horizontal:" + horizontal + " Vertical:" + vertical + " Direction:" + direction + " Angle:" + angle + "H:" + Input.GetAxisRaw ("Horizontal") + "V:" + Input.GetAxisRaw ("Vertical"));
 	}
 	
 	bool isMoving(){
-		if (Input.GetKey (KeyCode.LeftArrow)){
-		    direction = 180;
+		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.RightArrow))
 			return true;
-		} else if (Input.GetKey (KeyCode.RightArrow)){
-			direction = (Input.GetAxisRaw ("Vertical") == -1) ? direction = 360 : direction = 0;
-			return true;
-		}
-
 		return false;
 	}
 	

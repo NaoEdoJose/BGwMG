@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour {
 
 		firePoint = transform.FindChild ("FirePoint");
 		if (firePoint == null) {
-			Debug.LogError("Jose, adicione um FirePoint como filho do Player");
+			Debug.LogError("Adicionar um FirePoint como filho do Player");
 		}
 
 	}
