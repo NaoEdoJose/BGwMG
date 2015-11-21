@@ -26,17 +26,26 @@ public class Player : MonoBehaviour {
 	float velocityXSmoothing;
 	
 	Controller2D controller;
-	
+
+	PivotBehaviour pivot;
+
+	void Flip (){
+		
+		//(pivot.direction == 180)? this.transform.localScale.z = -1 : this.transform.localScale.z = 1;
+
+
+	}
 	void Start() {
 		controller = GetComponent<Controller2D> ();
-		
+		pivot = GetComponentInChildren<PivotBehaviour> ();
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
+
 	}
 	
 	void Update() {
+		Flip ();
 		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 		

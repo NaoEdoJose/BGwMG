@@ -5,7 +5,8 @@ public class PivotBehaviour : MonoBehaviour {
 	
 	float horizontal;
 	float vertical;
-	float direction = 0;
+	[HideInInspector]
+	public float direction = 0;
 	float angle;
 	
 	void setAngle () {
@@ -16,6 +17,7 @@ public class PivotBehaviour : MonoBehaviour {
 			horizontal = (Input.GetAxisRaw ("Horizontal") == -1) ? horizontal = 180 : (Input.GetAxisRaw ("Vertical") == -1) ? horizontal = 360 : horizontal = 0;
 			vertical = (Input.GetAxisRaw ("Vertical") == 1) ? vertical = 90 : (Input.GetAxisRaw ("Vertical") == -1) ? vertical = 270 : vertical = horizontal;
 			direction = horizontal;
+
 		} else {
 			vertical = (Input.GetAxisRaw ("Vertical") == 1) ? vertical = 90 : (Input.GetAxisRaw ("Vertical") == -1) ? vertical = 270 : vertical = horizontal;
 			horizontal = (Input.GetAxisRaw ("Vertical") == 0) ? horizontal = direction : horizontal = vertical;
