@@ -76,26 +76,27 @@ public class Player : MonoBehaviour {
 			}
 			
 		}
-		
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			if (wallSliding) {
-				if (wallDirX == input.x) {
-					velocity.x = -wallDirX * wallJumpClimb.x;
-					velocity.y = wallJumpClimb.y;
-				}
-				else if (input.x == 0) {
-					velocity.x = -wallDirX * wallJumpOff.x;
-					velocity.y = wallJumpOff.y;
-				}
-				else {
-					velocity.x = -wallDirX * wallLeap.x;
-					velocity.y = wallLeap.y;
-				}
-			}
-			if (controller.collisions.below) {
-				velocity.y = maxJumpVelocity;
-			}
-		}
+
+        if (Input.GetAxis("Vertical") >= 0) {
+            if (Input.GetKeyDown(KeyCode.Z)) {
+                if (wallSliding) {
+                    if (wallDirX == input.x) {
+                        velocity.x = -wallDirX * wallJumpClimb.x;
+                        velocity.y = wallJumpClimb.y;
+                    } else if (input.x == 0) {
+                        velocity.x = -wallDirX * wallJumpOff.x;
+                        velocity.y = wallJumpOff.y;
+                    } else {
+                        velocity.x = -wallDirX * wallLeap.x;
+                        velocity.y = wallLeap.y;
+                    }
+                }
+                if (controller.collisions.below) {
+                    velocity.y = maxJumpVelocity;
+                }
+            }
+        }
+
 		if (Input.GetKeyUp (KeyCode.Z)) {
 			if (velocity.y > minJumpVelocity) {
 				velocity.y = minJumpVelocity;
@@ -111,4 +112,8 @@ public class Player : MonoBehaviour {
 		}
 		
 	}
+
+    void conditional() { 
+    
+    }
 }
