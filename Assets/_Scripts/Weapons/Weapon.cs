@@ -25,11 +25,11 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 	
 		if (fireRate == 0) {
-			if (Input.GetKeyDown (KeyCode.X)) {
+			if (Input.GetKeyDown (KeyCode.S)) {
 				Shoot ();
 			}
 		} else {
-			if(Input.GetKey(KeyCode.X) && Time.time > timeToFire){
+			if(Input.GetKey(KeyCode.S) && Time.time > timeToFire){
 
 				timeToFire = Time.time + 1/fireRate;
 				Shoot();

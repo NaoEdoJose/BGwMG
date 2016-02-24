@@ -29,12 +29,15 @@ public class Player : MonoBehaviour {
 
 	PivotBehaviour pivot;
 
-	void Flip (){
+	void LimitTrack(){
 		
-		//(pivot.direction == 180)? this.transform.localScale.z = -1 : this.transform.localScale.z = 1;
+		if (this.transform.position.y < -10) {
+			this.transform.position = new Vector3 (-50 , -1.5f , -1.5f);
+		}
 
 
 	}
+
 	void Start() {
 		controller = GetComponent<Controller2D> ();
 		pivot = GetComponentInChildren<PivotBehaviour> ();
@@ -45,7 +48,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update() {
-		Flip ();
+		LimitTrack ();
 		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 		
@@ -77,7 +80,7 @@ public class Player : MonoBehaviour {
 			
 		}
 		
-		if (Input.GetKeyDown (KeyCode.Z)) {
+		if (Input.GetKeyDown (KeyCode.A)) {
 			if (wallSliding) {
 				if (wallDirX == input.x) {
 					velocity.x = -wallDirX * wallJumpClimb.x;
@@ -96,7 +99,7 @@ public class Player : MonoBehaviour {
 				velocity.y = maxJumpVelocity;
 			}
 		}
-		if (Input.GetKeyUp (KeyCode.Z)) {
+		if (Input.GetKeyUp (KeyCode.A)) {
 			if (velocity.y > minJumpVelocity) {
 				velocity.y = minJumpVelocity;
 			}
